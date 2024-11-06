@@ -1,8 +1,10 @@
+import { useState } from "react";
 import style from "./App.module.css";
 import Form from "./components/Form";
 import Header from "./components/Header";
 
 const App = () => {
+  const [inputTodo, setInputTodo] = useState("");
   return (
     <div className={style.container}>
       <div className={style.appwrapper}>
@@ -10,7 +12,7 @@ const App = () => {
           <Header />
         </div>
         <div>
-          <Form />
+          <Form inputTodo={inputTodo} setInputTodo={setInputTodo} />
         </div>
       </div>
     </div>
