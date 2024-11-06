@@ -6,7 +6,8 @@ const Form = ({ inputTodo, setInputTodo, todos, setTodos }) => {
   const handlerSubmit = (e) => {
     e.preventDefault();
     const recordTodo = { id: uuidv4(), title: inputTodo, completed: false };
-    console.log({ recordTodo });
+    setTodos([...todos, recordTodo]);
+    setInputTodo("");
   };
 
   return (
