@@ -1,9 +1,16 @@
 /* eslint-disable react/prop-types */
+import { v4 as uuidv4 } from "uuid";
 import style from "./Form.module.css";
 
-const Form = ({ inputTodo, setInputTodo }) => {
+const Form = ({ inputTodo, setInputTodo, todos, setTodos }) => {
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    const recordTodo = { id: uuidv4(), title: inputTodo, completed: false };
+    console.log({ recordTodo });
+  };
+
   return (
-    <form>
+    <form onSubmit={handlerSubmit}>
       <input
         type="text"
         name="task"
