@@ -1,13 +1,18 @@
 /* eslint-disable react/prop-types */
 import style from "./TodoItem.module.css";
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo, deleteTodo, checkTodo, setEdit }) => {
   return (
     <li className={style.list}>
-      <div className={`${style.listItem}`}>{todo.title}</div>
+      <div
+        className={`${style.listItem} 
+      ${todo.completed ? style.completed : ""}`}
+      >
+        {todo.title}
+      </div>
       <div>
-        <button>Edit</button>
-        <button>Delete</button>
-        <button>Check</button>
+        <button onClick={() => setEdit(todo)}>Edit</button>
+        <button onClick={() => deleteTodo(todo)}>Delete</button>
+        <button onClick={() => checkTodo(todo)}>Check</button>
       </div>
     </li>
   );
